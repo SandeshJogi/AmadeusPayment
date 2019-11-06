@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import com.amadeus.amadeuspayment.R;
 import com.amadeus.amadeuspayment.payment.Pay;
+import com.amadeus.amadeuspayment.processing.Processing;
 import com.amadeus.amadeuspayment.splashScreen.HomeActivity;
 
 public class Confirmation extends AppCompatActivity {
@@ -29,9 +30,9 @@ public class Confirmation extends AppCompatActivity {
         b2home = (Button) findViewById(R.id.back2home);
 
         Intent intent = getIntent();
-        amt2pay = intent.getDoubleExtra(Pay.EXTRA_PAY, 0);
-        curName = intent.getStringExtra(Pay.EXTRA_CURPAY);
-        walletBalance = intent.getDoubleExtra(Pay.EXTRA_WALBAL, 0);
+        amt2pay = intent.getDoubleExtra(Processing.EXTRA_PPAY, 0);
+        curName = intent.getStringExtra(Processing.EXTRA_PCURPAY);
+        walletBalance = intent.getDoubleExtra(Processing.EXTRA_PWALBAL, 0);
 
         switch (curName){
             case "Euro" : usdamt = amt2pay/0.90;

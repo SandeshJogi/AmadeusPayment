@@ -8,12 +8,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.amadeus.amadeuspayment.MainActivity;
 import com.amadeus.amadeuspayment.R;
 import com.amadeus.amadeuspayment.confirmation.Confirmation;
+import com.amadeus.amadeuspayment.processing.Processing;
 import com.amadeus.amadeuspayment.spinner.CurrencyAdapter;
 import com.amadeus.amadeuspayment.spinner.CurrencyItem;
 import com.amadeus.amadeuspayment.splashScreen.HomeActivity;
@@ -39,6 +41,8 @@ public class Pay extends AppCompatActivity {
     private String clickedCurrencyName;
 
     private EditText editText_AmountToPay;
+
+    private RadioGroup radioGroup_payments;
 
     private Button button_Pay;
 
@@ -86,14 +90,14 @@ public class Pay extends AppCompatActivity {
             public void onClick(View view) {
                 amountToPay = Double.valueOf(editText_AmountToPay.getText().toString());
 
-                openActivityConfirmation();
+                openActivityProcessing();
             }
         });
 
     }
 
-    public void openActivityConfirmation(){
-        Intent intent = new Intent(this, Confirmation.class);
+    public void openActivityProcessing(){
+        Intent intent = new Intent(this, Processing.class);
         intent.putExtra(EXTRA_WALBAL, walletBalance);
         intent.putExtra(EXTRA_PAY, amountToPay);
         intent.putExtra(EXTRA_CURPAY , clickedCurrencyName);
@@ -106,5 +110,20 @@ public class Pay extends AppCompatActivity {
         mCurrencyItems.add(new CurrencyItem("INR", R.drawable.inr));
         mCurrencyItems.add(new CurrencyItem("Pound", R.drawable.pound));
         mCurrencyItems.add(new CurrencyItem("Yen", R.drawable.yen));
+    }
+
+    public void onPaymentSelected(View view){
+        radioGroup_payments = (RadioGroup) findViewById(R.id.radioGroup);
+        switch (radioGroup_payments.getCheckedRadioButtonId()){
+            case R.id.apay:
+                Toast.makeText(this, "ApplePay", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.gpay:
+                Toast.makeText(this, "GooglePay", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.paypal:
+                Toast.makeText(this, "PayPal", Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 }
