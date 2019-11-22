@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.WindowManager;
 
+import com.amadeus.amadeuspayment.cmt.Main2Activity;
 import com.amadeus.amadeuspayment.splashScreen.HomeActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent homeIntent = new Intent(MainActivity.this, HomeActivity.class);
+                Log.i("MainActivity", "Reached main activity");
+                Intent homeIntent = new Intent(MainActivity.this, Main2Activity.class);
                 startActivity(homeIntent);
                 finish();
             }

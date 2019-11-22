@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".processing.Processing"></activity>
+        <activity android:name=".cmt.Main2Activity"></activity>
+        <activity android:name=".processing.Processing" />
         <activity android:name=".confirmation.Confirmation" />
         <activity android:name=".payment.Pay" />
         <activity android:name=".splashScreen.HomeActivity" />
