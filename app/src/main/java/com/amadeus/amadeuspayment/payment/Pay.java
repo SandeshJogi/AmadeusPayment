@@ -120,6 +120,7 @@ public class Pay extends AppCompatActivity {
         mCurrencyItems.add(new CurrencyItem("INR", R.drawable.inr));
         mCurrencyItems.add(new CurrencyItem("Pound", R.drawable.pound));
         mCurrencyItems.add(new CurrencyItem("Yen", R.drawable.yen));
+        mCurrencyItems.add(new CurrencyItem("USD", R.drawable.dollar));
 
         mModeItems = new ArrayList<>();
         mModeItems.add(new ModeItem( "TapPay", R.drawable.nfc));
