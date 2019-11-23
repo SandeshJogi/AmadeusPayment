@@ -18,6 +18,10 @@ import com.amadeus.amadeuspayment.confirmation.Confirmation;
 import com.amadeus.amadeuspayment.processing.Processing;
 import com.amadeus.amadeuspayment.spinner.CurrencyAdapter;
 import com.amadeus.amadeuspayment.spinner.CurrencyItem;
+import com.amadeus.amadeuspayment.spinner.ModeItem;
+import com.amadeus.amadeuspayment.spinner.ModeAdapter;
+import com.amadeus.amadeuspayment.spinner.ModeItem;
+import com.amadeus.amadeuspayment.spinner.ModeItem;
 import com.amadeus.amadeuspayment.splashScreen.HomeActivity;
 
 import java.util.ArrayList;
@@ -30,7 +34,9 @@ public class Pay extends AppCompatActivity {
     public static final String EXTRA_WALBAL = "com.amadeus.amadeuspayment.EXTRA_WALBAL";
 
     private ArrayList<CurrencyItem> mCurrencyItems;
+    private ArrayList<ModeItem> mModeItems;
     private CurrencyAdapter mAdapter;
+    private ModeAdapter mMAdapter;
 
     private double walletBalance;
     private double amountToPay;
@@ -58,9 +64,13 @@ public class Pay extends AppCompatActivity {
         initList();
 
         Spinner spinnerCurrencies = findViewById(R.id.spinner_currencies);
+        Spinner spinnerModes = findViewById(R.id.spinner_modes);
 
         mAdapter = new CurrencyAdapter(this, mCurrencyItems);
         spinnerCurrencies.setAdapter(mAdapter);
+
+        mMAdapter = new ModeAdapter(this, mModeItems);
+        spinnerModes.setAdapter(mMAdapter);
 
         spinnerCurrencies.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -110,9 +120,16 @@ public class Pay extends AppCompatActivity {
         mCurrencyItems.add(new CurrencyItem("INR", R.drawable.inr));
         mCurrencyItems.add(new CurrencyItem("Pound", R.drawable.pound));
         mCurrencyItems.add(new CurrencyItem("Yen", R.drawable.yen));
+
+        mModeItems = new ArrayList<>();
+        mModeItems.add(new ModeItem( "TapPay", R.drawable.ic_apple_pay));
+        mModeItems.add(new ModeItem("QRCode", R.drawable.ic_apple_pay));
+        mModeItems.add(new ModeItem("GpPay", R.drawable.ic_google_pay));
+        mModeItems.add(new ModeItem("CC", R.drawable.ic_apple_pay));
+        mModeItems.add(new ModeItem("NB", R.drawable.ic_google_pay));
     }
 
-    public void onPaymentSelected(View view){
+   /* public void onPaymentSelected(View view){
         radioGroup_payments = (RadioGroup) findViewById(R.id.radioGroup);
         switch (radioGroup_payments.getCheckedRadioButtonId()){
             case R.id.apay:
@@ -125,5 +142,5 @@ public class Pay extends AppCompatActivity {
                 Toast.makeText(this, "PayPal", Toast.LENGTH_SHORT).show();
                 break;
         }
-    }
+    }*/
 }
