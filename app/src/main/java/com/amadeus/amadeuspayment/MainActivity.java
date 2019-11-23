@@ -14,7 +14,7 @@ import com.amadeus.amadeuspayment.splashScreen.HomeActivity;
 public class MainActivity extends AppCompatActivity {
 
     // This command is used to create a SPLASH Screen or a LOADING Screen
-    private static int SPLASH_TIME_OUT = 2000;
+    private static int SPLASH_TIME_OUT = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
