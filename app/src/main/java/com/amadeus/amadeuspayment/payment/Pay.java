@@ -120,13 +120,15 @@ public class Pay extends AppCompatActivity {
         mCurrencyItems.add(new CurrencyItem("INR", R.drawable.inr));
         mCurrencyItems.add(new CurrencyItem("Pound", R.drawable.pound));
         mCurrencyItems.add(new CurrencyItem("Yen", R.drawable.yen));
+        mCurrencyItems.add(new CurrencyItem("USD", R.drawable.dollar));
 
         mModeItems = new ArrayList<>();
-        mModeItems.add(new ModeItem( "TapPay", R.drawable.ic_apple_pay));
-        mModeItems.add(new ModeItem("QRCode", R.drawable.ic_apple_pay));
-        mModeItems.add(new ModeItem("GpPay", R.drawable.ic_google_pay));
-        mModeItems.add(new ModeItem("CC", R.drawable.ic_apple_pay));
-        mModeItems.add(new ModeItem("NB", R.drawable.ic_google_pay));
+        mModeItems.add(new ModeItem( "TapPay", R.drawable.nfc));
+        mModeItems.add(new ModeItem("QRCode", R.drawable.qrcode));
+        mModeItems.add(new ModeItem("  GPay", R.drawable.ic_google_pay));
+        mModeItems.add(new ModeItem("  APay", R.drawable.ic_apple_pay));
+        mModeItems.add(new ModeItem(" CreditCard", R.drawable.visa));
+        mModeItems.add(new ModeItem(" NetBanking", R.drawable.netbanking));
     }
 
    /* public void onPaymentSelected(View view){

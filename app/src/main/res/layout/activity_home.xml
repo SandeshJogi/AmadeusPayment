@@ -216,11 +216,11 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="140dp"
+        android:layout_width="240dp"
         android:layout_height="36dp"
         android:background="@drawable/ppaybox"
         android:fontFamily="@font/alfa_slab_one"
-        android:text="Pay"
+        android:text="Proceed To Pay"
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -5,14 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.WindowManager;
 
+import com.amadeus.amadeuspayment.cmt.Main2Activity;
 import com.amadeus.amadeuspayment.splashScreen.HomeActivity;
 
 public class MainActivity extends AppCompatActivity {
 
     // This command is used to create a SPLASH Screen or a LOADING Screen
-    private static int SPLASH_TIME_OUT = 2000;
+    private static int SPLASH_TIME_OUT = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent homeIntent = new Intent(MainActivity.this, HomeActivity.class);
+                Log.i("MainActivity", "Reached main activity");
+                Intent homeIntent = new Intent(MainActivity.this, Main2Activity.class);
                 startActivity(homeIntent);
                 finish();
             }
